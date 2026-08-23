@@ -42,7 +42,7 @@
           <span class="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
             <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
           </span>
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Ulastech</span><span class="text-xs text-blue-400 font-mono self-end pb-1">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Ulastech</span><span class="text-xs text-blue-400 font-mono self-end pb-1">.com</span>
         </a>
 
         <!-- Desktop Menu -->
@@ -234,8 +234,8 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="w-6 h-6 rounded overflow-hidden flex items-center justify-center">
-  <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
-</span>
+          <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
+        </span>
         <span class="text-slate-300 font-bold">Ulastech</span> &copy; <span id="currentYear"></span>. Hak Cipta Dilindungi.
       </div>
       <div class="flex items-center space-x-4">
@@ -424,46 +424,29 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // INITIAL ARTICLES DATA
-    const INITIAL_ARTICLES = [
-      {
-        id: 'art-1',
-        title: 'Review RAPAtech MagPower Qi2: Solusi Powerbank Magnetik Cepat & Dingin',
-        category: 'Aksesoris & Daya',
-        rating: 4.9,
-        author: 'Tim Ulastech',
-        date: '23 Agu 2026',
-        imageUrl: 'https://images.unsplash.com/photo-1609592424360-155d0458df8a?auto=format&fit=crop&w=800&q=80',
-        summary: 'Pengujian mendalam pengisian daya Qi2 15W wireless dengan efisiensi termal tinggi dan daya lekat magnet kokoh.',
-        content: 'Standar Qi2 membawa peningkatan revolusioner dalam ekosistem nirkabel magnetik. Powerbank RAPAtech ini membuktikan stabilitas output 15W tanpa panas berlebih yang biasanya mengganggu baterai smartphone.\n\nKelebihan:\n- Magnet super kuat sejajar sempurna\n- Suhu terjaga berkat heat management cerdas\n- Ukuran ringkas mudah dibawa bepergian\n\nKekurangan:\n- Bobot sedikit lebih padat karena modul pendingin\n\nKesimpulan: Sangat direkomendasikan bagi pengguna ponsel modern yang membutuhkan mobilitas tinggi tanpa kabel.'
-      },
-      {
-        id: 'art-2',
-        title: 'Komparasi Flagship Phone 2026: Mana yang Terbaik untuk Produktivitas?',
-        category: 'Smartphone',
-        rating: 4.8,
-        author: 'Editor Ulastech',
-        date: '20 Agu 2026',
-        imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80',
-        summary: 'Membedah performa kamera, ketahanan baterai, dan integrasi fitur AI harian pada lini ponsel papan atas.',
-        content: 'Tahun 2026 menjadi ajang persaingan sengit kemampuan On-Device AI dan pemrosesan komputasi gambar. Kami menguji 3 ponsel terbaik di kelasnya untuk multitasking berat, rendering video 4K, dan daya tahan seharian penuh.'
-      },
-      {
-        id: 'art-3',
-        title: 'Panduan Memilih TWS dengan Active Noise Cancelling di Bawah 1 Juta',
-        category: 'Audio',
-        rating: 4.7,
-        author: 'Tim Ulastech',
-        date: '15 Agu 2026',
-        imageUrl: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80',
-        summary: 'Rekomendasi earphone nirkabel terbaik dengan isolasi suara jempolan dan karakter audio seimbang.',
-        content: 'Tidak perlu merogoh kocek terlalu dalam untuk mendapatkan fitur ANC (Peredam Bising Aktif) yang berkualitas. Kami merangkum 4 pilihan TWS dengan latensi rendah, codec LDAC, dan mikrofon jernih untuk panggilan video.'
-      }
-    ];
-
-    // PERSISTENCE STATE
-    let articles = JSON.parse(localStorage.getItem('Ulastech_articles')) || INITIAL_ARTICLES;
+    // ARTICLES DATA
+    // Artikel diambil dari data/articles.json (diupdate otomatis tiap hari via GitHub Actions).
+    // Jika admin menambah/edit artikel manual lewat dashboard, perubahan itu disimpan
+    // di localStorage browser admin sendiri dan akan menimpa data JSON di sesi berikutnya.
+    let articles = JSON.parse(localStorage.getItem('Ulastech_articles')) || [];
     let messages = JSON.parse(localStorage.getItem('Ulastech_messages')) || [];
+
+    async function loadArticlesFromJSON() {
+      // Kalau admin belum pernah menyimpan perubahan lokal, ambil dari file JSON terbaru
+      if (localStorage.getItem('Ulastech_articles')) {
+        renderArticles();
+        return;
+      }
+      try {
+        const res = await fetch('data/articles.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Gagal memuat articles.json');
+        articles = await res.json();
+      } catch (err) {
+        console.error('Gagal memuat artikel dari JSON, memakai data kosong.', err);
+        articles = [];
+      }
+      renderArticles();
+    }
 
     const DEFAULT_EMAIL = 'admin@Ulastech.com';
     const DEFAULT_PASS = 'admin123';
@@ -483,7 +466,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('currentYear').innerText = new Date().getFullYear();
-      renderArticles();
+      loadArticlesFromJSON();
       updateAdminAuthUI();
       lucide.createIcons();
     });
