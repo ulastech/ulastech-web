@@ -1,0 +1,35 @@
+name: Generate Daily Tech Article
+
+on:
+  schedule:
+    # Jalan tiap hari jam 00:00 UTC = 07:00 WIB
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}   # supaya bisa dijalankan manual dari tab Actions
+
+permissions:
+  contents: write
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate artikel baru
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-daily-article.mjs
+
+      - name: Commit & push perubahan
+        run: |
+          git config user.name "ulastech-bot"
+          git config user.email "bot@ulastech.local"
+          git add data/articles.json
+          git diff --cached --quiet || git commit -m "Auto: artikel teknologi harian $(date +'%Y-%m-%d')"
+          git push
