@@ -2,8 +2,11 @@ name: Generate Daily Tech Article
 
 on:
   schedule:
-    # Jalan tiap hari jam 00:00 UTC = 07:00 WIB
+    # Jalan 2x sehari:
+    # 00:00 UTC = 07:00 WIB (pagi)
     - cron: "0 0 * * *"
+    # 09:00 UTC = 16:00 WIB (sore)
+    - cron: "0 9 * * *"
   workflow_dispatch: {}   # supaya bisa dijalankan manual dari tab Actions
 
 permissions:
