@@ -1,0 +1,9 @@
+{
+  "name": "ulastech-auto-content",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate-daily-article.mjs"
+  }
+}

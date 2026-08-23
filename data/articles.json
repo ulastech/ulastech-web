@@ -1,0 +1,35 @@
+[
+  {
+    "id": "art-1",
+    "title": "Review RAPAtech MagPower Qi2: Solusi Powerbank Magnetik Cepat & Dingin",
+    "category": "Aksesoris & Daya",
+    "rating": 4.9,
+    "author": "Tim Ulastech",
+    "date": "23 Agu 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1609592424360-155d0458df8a?auto=format&fit=crop&w=800&q=80",
+    "summary": "Pengujian mendalam pengisian daya Qi2 15W wireless dengan efisiensi termal tinggi dan daya lekat magnet kokoh.",
+    "content": "Standar Qi2 membawa peningkatan revolusioner dalam ekosistem nirkabel magnetik. Powerbank RAPAtech ini membuktikan stabilitas output 15W tanpa panas berlebih yang biasanya mengganggu baterai smartphone.\n\nKelebihan:\n- Magnet super kuat sejajar sempurna\n- Suhu terjaga berkat heat management cerdas\n- Ukuran ringkas mudah dibawa bepergian\n\nKekurangan:\n- Bobot sedikit lebih padat karena modul pendingin\n\nKesimpulan: Sangat direkomendasikan bagi pengguna ponsel modern yang membutuhkan mobilitas tinggi tanpa kabel."
+  },
+  {
+    "id": "art-2",
+    "title": "Komparasi Flagship Phone 2026: Mana yang Terbaik untuk Produktivitas?",
+    "category": "Smartphone",
+    "rating": 4.8,
+    "author": "Editor Ulastech",
+    "date": "20 Agu 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+    "summary": "Membedah performa kamera, ketahanan baterai, dan integrasi fitur AI harian pada lini ponsel papan atas.",
+    "content": "Tahun 2026 menjadi ajang persaingan sengit kemampuan On-Device AI dan pemrosesan komputasi gambar. Kami menguji 3 ponsel terbaik di kelasnya untuk multitasking berat, rendering video 4K, dan daya tahan seharian penuh."
+  },
+  {
+    "id": "art-3",
+    "title": "Panduan Memilih TWS dengan Active Noise Cancelling di Bawah 1 Juta",
+    "category": "Audio",
+    "rating": 4.7,
+    "author": "Tim Ulastech",
+    "date": "15 Agu 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80",
+    "summary": "Rekomendasi earphone nirkabel terbaik dengan isolasi suara jempolan dan karakter audio seimbang.",
+    "content": "Tidak perlu merogoh kocek terlalu dalam untuk mendapatkan fitur ANC (Peredam Bising Aktif) yang berkualitas. Kami merangkum 4 pilihan TWS dengan latensi rendah, codec LDAC, dan mikrofon jernih untuk panggilan video."
+  }
+]
