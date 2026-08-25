@@ -94,11 +94,11 @@ Jangan tulis apapun setelah blok JSON itu.`;
     },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 3000,
+      max_tokens: 6000,
       system: systemPrompt,
       messages: [{ role: "user", content: userPrompt }],
       tools: [
-        { type: "web_search_20250305", name: "web_search", max_uses: 4 }
+        { type: "web_search_20250305", name: "web_search", max_uses: 3 }
       ]
     })
   });
@@ -120,7 +120,11 @@ Jangan tulis apapun setelah blok JSON itu.`;
 
   // Ambil blok JSON terakhir di dalam teks (output final sesuai instruksi system prompt)
   const jsonMatch = allText.match(/\{[\s\S]*\}(?!.*\{[\s\S]*\})/);
-  if (!jsonMatch) throw new Error("Tidak menemukan blok JSON di respons model.");
+  if (!jsonMatch) {
+    console.error("stop_reason dari API:", data.stop_reason);
+    console.error("Teks lengkap yang diterima dari model:\n", allText);
+    throw new Error("Tidak menemukan blok JSON di respons model. Kemungkinan kehabisan token (lihat log di atas untuk detail).");
+  }
 
   const parsed = JSON.parse(jsonMatch[0]);
 
