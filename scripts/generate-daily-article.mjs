@@ -137,7 +137,7 @@ Jangan tulis apapun setelah blok JSON itu.`;
     title: parsed.title,
     category: cat.name,
     rating: parsed.rating || 4.8,
-    author: "Tim Ulastech (AI)",
+    author: "Tim Ulastech",
     date: todayID(),
     imageUrl,
     summary: parsed.summary,
