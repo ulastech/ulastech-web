@@ -49,6 +49,22 @@
         <!-- Desktop Menu -->
         <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
           <a href="#home" class="hover:text-blue-400 transition-colors">Beranda</a>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-blue-400 transition-colors">
+              <span>Kategori</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+            <div class="absolute left-0 top-full pt-2 hidden group-hover:block">
+              <div class="bg-slate-900 border border-slate-800 rounded-xl shadow-xl py-2 w-48">
+                <a href="#ulasan" onclick="goToCategory('ALL')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">Semua Kategori</a>
+                <a href="#ulasan" onclick="goToCategory('Apple &amp; iOS')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">Apple & iOS</a>
+                <a href="#ulasan" onclick="goToCategory('Android &amp; OS')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">Android & OS</a>
+                <a href="#ulasan" onclick="goToCategory('Laptop &amp; PC')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">Laptop & PC</a>
+                <a href="#ulasan" onclick="goToCategory('Keamanan Perangkat')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">Keamanan Perangkat</a>
+                <a href="#ulasan" onclick="goToCategory('AI Terbaru')" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-blue-400">AI Terbaru</a>
+              </div>
+            </div>
+          </div>
           <a href="#ulasan" class="hover:text-blue-400 transition-colors">Ulasan Gadget</a>
           <a href="#tentang" class="hover:text-blue-400 transition-colors">Tentang Saya</a>
           <a href="#kontak" class="hover:text-blue-400 transition-colors">Kontak</a>
@@ -74,6 +90,15 @@
     <!-- Mobile dropdown -->
     <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-900 px-4 pt-2 pb-4 space-y-2 text-sm">
       <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-blue-400">Beranda</a>
+      <div class="py-1">
+        <div class="text-xs uppercase tracking-wide text-slate-500 px-0 pt-1 pb-1">Kategori</div>
+        <a href="#ulasan" onclick="goToCategory('ALL'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">Semua Kategori</a>
+        <a href="#ulasan" onclick="goToCategory('Apple &amp; iOS'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">Apple & iOS</a>
+        <a href="#ulasan" onclick="goToCategory('Android &amp; OS'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">Android & OS</a>
+        <a href="#ulasan" onclick="goToCategory('Laptop &amp; PC'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">Laptop & PC</a>
+        <a href="#ulasan" onclick="goToCategory('Keamanan Perangkat'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">Keamanan Perangkat</a>
+        <a href="#ulasan" onclick="goToCategory('AI Terbaru'); toggleMobileMenu();" class="block py-1.5 pl-3 text-slate-300 hover:text-blue-400">AI Terbaru</a>
+      </div>
       <a href="#ulasan" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-blue-400">Ulasan Gadget</a>
       <a href="#tentang" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-blue-400">Tentang Saya</a>
       <a href="#kontak" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-blue-400">Kontak</a>
@@ -127,11 +152,11 @@
           </div>
           <select id="categoryFilter" onchange="filterArticles()" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-blue-500">
             <option value="ALL">Semua Kategori</option>
-            <option value="Smartphone">Smartphone</option>
-            <option value="Aksesoris & Daya">Aksesoris & Daya</option>
+            <option value="Apple & iOS">Apple & iOS</option>
+            <option value="Android & OS">Android & OS</option>
             <option value="Laptop & PC">Laptop & PC</option>
-            <option value="Audio">Audio & TWS</option>
-            <option value="Tech Insights">Tech Insights</option>
+            <option value="Keamanan Perangkat">Keamanan Perangkat</option>
+            <option value="AI Terbaru">AI Terbaru</option>
           </select>
         </div>
       </div>
@@ -385,11 +410,11 @@
           <div>
             <label class="block font-semibold text-slate-300 mb-1">Kategori</label>
             <select id="formCategory" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none">
-              <option value="Smartphone">Smartphone</option>
-              <option value="Aksesoris & Daya">Aksesoris & Daya</option>
+              <option value="Apple & iOS">Apple & iOS</option>
+              <option value="Android & OS">Android & OS</option>
               <option value="Laptop & PC">Laptop & PC</option>
-              <option value="Audio">Audio & TWS</option>
-              <option value="Tech Insights">Tech Insights</option>
+              <option value="Keamanan Perangkat">Keamanan Perangkat</option>
+              <option value="AI Terbaru">AI Terbaru</option>
             </select>
           </div>
           <div>
@@ -546,6 +571,14 @@
 
     function filterArticles() {
       renderArticles();
+    }
+
+    function goToCategory(cat) {
+      const select = document.getElementById('categoryFilter');
+      if (select) {
+        select.value = cat;
+        filterArticles();
+      }
     }
 
     function viewArticleDetail(id) {
