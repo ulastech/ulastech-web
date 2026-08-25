@@ -78,32 +78,30 @@ Setelah selesai riset, WAJIB akhiri responsmu dengan SATU blok JSON valid (tanpa
   "title": "judul menarik, maks 90 karakter",
   "summary": "ringkasan 1-2 kalimat untuk kartu artikel",
   "content": "isi artikel lengkap 3-5 paragraf, gunakan \\n\\n antar paragraf, boleh pakai poin - jika relevan",
-  "rating": angka desimal 4.5 sampai 5.0
+  "rating": angka desimal 4.5 sampai 5.0,
+  "imageQuery": "2-4 kata kunci Bahasa Inggris yang SPESIFIK menggambarkan produk/topik utama artikel ini untuk pencarian foto (contoh: 'Samsung Galaxy smartphone', 'MacBook Pro laptop', 'cyber security padlock'). Sebutkan nama brand/produk jika artikel membahas produk tertentu."
 }
 Jangan tulis apapun setelah blok JSON itu.`;
 
   const userPrompt = `Tulis artikel kategori "${cat.name}" dengan topik: ${topic.text}. Cari info terbaru dulu lewat web search sebelum menulis.`;
 
-  const [res, imageUrl] = await Promise.all([
-    fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": API_KEY,
-        "anthropic-version": "2023-06-01"
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 3000,
-        system: systemPrompt,
-        messages: [{ role: "user", content: userPrompt }],
-        tools: [
-          { type: "web_search_20250305", name: "web_search", max_uses: 4 }
-        ]
-      })
-    }),
-    fetchThumbnailImage(topic.imageQuery)
-  ]);
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": API_KEY,
+      "anthropic-version": "2023-06-01"
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 3000,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userPrompt }],
+      tools: [
+        { type: "web_search_20250305", name: "web_search", max_uses: 4 }
+      ]
+    })
+  });
 
   if (!res.ok) {
     const errText = await res.text();
@@ -125,6 +123,10 @@ Jangan tulis apapun setelah blok JSON itu.`;
   if (!jsonMatch) throw new Error("Tidak menemukan blok JSON di respons model.");
 
   const parsed = JSON.parse(jsonMatch[0]);
+
+  // Cari gambar SESUDAH tahu isi artikel, pakai kata kunci spesifik dari AI
+  // (fallback ke kata kunci kategori kalau AI tidak kasih imageQuery)
+  const imageUrl = await fetchThumbnailImage(parsed.imageQuery || topic.imageQuery);
 
   return {
     id: "art-" + Date.now(),
