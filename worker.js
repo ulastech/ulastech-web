@@ -49,20 +49,9 @@ export default {
 
 async function getArticles(request, env) {
   const dataUrl = new URL("/data/articles.json", request.url);
-  try {
-    // Sengaja pakai request BARU yang bersih (bukan reuse request navigasi asli),
-    // supaya tidak mewarisi header seperti Accept: text/html atau Sec-Fetch-Dest: document
-    // yang bisa membuat handler assets salah mengira ini butuh fallback SPA.
-    const res = await env.ASSETS.fetch(new Request(dataUrl.toString(), { method: "GET" }));
-    if (!res.ok) {
-      console.error("Fetch data/articles.json gagal, status:", res.status);
-      return [];
-    }
-    return await res.json();
-  } catch (err) {
-    console.error("Error saat fetch/parsing data/articles.json:", err);
-    return [];
-  }
+  const res = await env.ASSETS.fetch(new Request(dataUrl, request));
+  if (!res.ok) return [];
+  return res.json();
 }
 
 async function handleArticlePage(slug, request, env) {
@@ -158,7 +147,8 @@ function renderArticlePage(article, related, request) {
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div onclick="if(event.target===this){window.location.href='/'}" class="bg-black/50 min-h-[calc(100vh-65px)] py-6 sm:py-10 px-4 sm:px-6 lg:px-8 flex justify-center">
+  <main class="max-w-4xl w-full h-fit bg-slate-950 border border-slate-800 rounded-2xl px-4 sm:px-8 py-8 sm:py-10">
     <div class="flex items-center space-x-2 text-xs text-slate-500 mb-6">
       <a href="/" class="hover:text-slate-300">Beranda</a><span>/</span>
       <span>${escapeHtml(article.category)}</span><span>/</span>
@@ -190,6 +180,7 @@ function renderArticlePage(article, related, request) {
       </div>
     </div>
   </main>
+  </div>
 
   <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
     <span class="text-slate-300 font-bold">Ulastech</span> &copy; ${(String(article.date).match(/\d{4}/) || [""])[0]} Hak Cipta Dilindungi.
