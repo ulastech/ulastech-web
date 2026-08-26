@@ -11,7 +11,7 @@
 const ADMIN_EMAIL = "admin@ulastech.com";
 // Alamat pengirim ini HARUS berasal dari domain yang sudah diverifikasi di Resend.
 // Ganti "ulastech.com" kalau domain yang diverifikasi berbeda.
-const FROM_EMAIL = "Ulastech Kontak <kontak@ulastech.com>";
+const FROM_EMAIL = "Ulastech Web <kontak@ulastech.com>";
 
 // Warna badge kategori (dipakai di halaman artikel & disamakan dengan index.html)
 const CATEGORY_COLORS = {
