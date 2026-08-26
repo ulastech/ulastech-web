@@ -66,6 +66,33 @@ function todayID() {
   });
 }
 
+// Ubah judul jadi slug URL (dipakai untuk halaman artikel sendiri: /ulasan/<slug>)
+function slugify(text) {
+  return text
+    .toString()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " dan ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+// Pastikan slug unik dibanding artikel yang sudah ada, supaya tidak ada 2 artikel
+// beda yang berbagi URL /ulasan/... yang sama.
+function uniqueSlug(title, existingArticles) {
+  const existingSlugs = new Set(existingArticles.map(a => a.slug).filter(Boolean));
+  const base = slugify(title);
+  let slug = base;
+  let i = 2;
+  while (existingSlugs.has(slug)) {
+    slug = `${base}-${i}`;
+    i++;
+  }
+  return slug;
+}
+
 async function generateArticle() {
   const cat = pickRandom(CATEGORIES);
   const topic = pickRandom(cat.topics);
@@ -155,6 +182,7 @@ async function main() {
   const articles = JSON.parse(raw);
 
   const newArticle = await generateArticle();
+  newArticle.slug = uniqueSlug(newArticle.title, articles);
   articles.unshift(newArticle);
 
   // Batasi maksimal 60 artikel supaya file tidak membengkak
