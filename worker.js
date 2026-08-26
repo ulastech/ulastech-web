@@ -155,7 +155,7 @@ function renderArticlePage(article, related, request) {
   </header>
 
   <div onclick="if(event.target===this){window.location.href='/'}" class="min-h-[calc(100vh-65px)] py-6 sm:py-10 px-4 sm:px-6 lg:px-8 flex justify-center">
-  <main class="max-w-4xl w-full h-fit bg-slate-950 border border-slate-800 rounded-2xl px-4 sm:px-8 py-8 sm:py-10">
+  <main class="max-w-4xl w-full h-fit bg-slate-800 border border-slate-800 rounded-2xl px-4 sm:px-8 py-8 sm:py-10">
     <div class="flex items-center space-x-2 text-xs text-slate-500 mb-6">
       <a href="/" class="hover:text-slate-300">Beranda</a><span>/</span>
       <span>${escapeHtml(article.category)}</span><span>/</span>
