@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ulastech - Portal Ulasan Teknologi Terkini</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="/logo.png">
   <meta name="description" content="Ulastech - Ulasan gadget, smartphone, aksesoris, dan info teknologi terkini oleh tim Ulastech.">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,7 +41,7 @@
         <!-- Logo -->
         <a href="#home" class="flex items-center space-x-2 text-xl font-extrabold tracking-tight text-white group">
           <span class="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
+            <img src="/logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
           </span>
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Ulastech</span><span class="text-xs text-blue-400 font-mono self-end pb-1">
         </a>
@@ -216,7 +216,7 @@
                 <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 p-1 mb-4 shadow-xl">
                   <div class="w-full h-full rounded-full bg-slate-950 flex items-center justify-center text-3xl font-extrabold text-blue-700">
                     <span class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
+            <img src="/logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
           </span>
                   </div>
                 </div>
@@ -303,7 +303,7 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="w-6 h-6 rounded overflow-hidden flex items-center justify-center">
-          <img src="logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
+          <img src="/logo.png" alt="Logo Ulastech" class="w-full h-full object-cover">
         </span>
         <span class="text-slate-300 font-bold">Ulastech</span> &copy; <span id="currentYear"></span>. Hak Cipta Dilindungi.
       </div>
@@ -529,7 +529,7 @@
         return;
       }
       try {
-        const res = await fetch('data/articles.json', { cache: 'no-store' });
+        const res = await fetch('/data/articles.json', { cache: 'no-store' });
         if (!res.ok) throw new Error('Gagal memuat articles.json');
         articles = await res.json();
       } catch (err) {
