@@ -49,9 +49,20 @@ export default {
 
 async function getArticles(request, env) {
   const dataUrl = new URL("/data/articles.json", request.url);
-  const res = await env.ASSETS.fetch(new Request(dataUrl, request));
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    // Sengaja pakai request BARU yang bersih (bukan reuse request navigasi asli),
+    // supaya tidak mewarisi header seperti Accept: text/html atau Sec-Fetch-Dest: document
+    // yang bisa membuat handler assets salah mengira ini butuh fallback SPA.
+    const res = await env.ASSETS.fetch(new Request(dataUrl.toString(), { method: "GET" }));
+    if (!res.ok) {
+      console.error("Fetch data/articles.json gagal, status:", res.status);
+      return [];
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("Error saat fetch/parsing data/articles.json:", err);
+    return [];
+  }
 }
 
 async function handleArticlePage(slug, request, env) {
