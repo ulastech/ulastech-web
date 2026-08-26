@@ -142,12 +142,19 @@ function renderArticlePage(article, related, request) {
           </span>
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Ulastech</span>
         </a>
+        <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+          <a href="/" class="hover:text-blue-400 transition-colors">Beranda</a>
+          <a href="/#ulasan" class="hover:text-blue-400 transition-colors">Kategori</a>
+          <a href="/#ulasan" class="hover:text-blue-400 transition-colors">Ulasan Gadget</a>
+          <a href="/#tentang" class="hover:text-blue-400 transition-colors">Tentang Saya</a>
+          <a href="/#kontak" class="hover:text-blue-400 transition-colors">Kontak</a>
+        </nav>
         <a href="/" class="text-xs font-semibold px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">← Kembali ke Beranda</a>
       </div>
     </div>
   </header>
 
-  <div onclick="if(event.target===this){window.location.href='/'}" class="bg-black/50 min-h-[calc(100vh-65px)] py-6 sm:py-10 px-4 sm:px-6 lg:px-8 flex justify-center">
+  <div onclick="if(event.target===this){window.location.href='/'}" class="min-h-[calc(100vh-65px)] py-6 sm:py-10 px-4 sm:px-6 lg:px-8 flex justify-center">
   <main class="max-w-4xl w-full h-fit bg-slate-950 border border-slate-800 rounded-2xl px-4 sm:px-8 py-8 sm:py-10">
     <div class="flex items-center space-x-2 text-xs text-slate-500 mb-6">
       <a href="/" class="hover:text-slate-300">Beranda</a><span>/</span>
