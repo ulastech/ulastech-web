@@ -112,54 +112,91 @@
   <!-- MAIN CONTENT -->
   <main class="flex-grow">
     <!-- HERO SECTION -->
-    <section id="home" class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.18),rgba(255,255,255,0))]"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-6">
-          <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-          <span>Eksplorasi & Ulasan Teknologi Independen</span>
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight">
-          Panduan Gadget Terpercaya & <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500">Ulasan Teknologi Terkini</span>
-        </h1>
-        <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Temukan ulasan komprehensif seputar smartphone, laptop, ekosistem aksesoris pintar, hingga teknologi terdepan bersama <strong class="text-slate-200">Ulastech</strong>.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a href="#ulasan" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-600/30 transition flex items-center space-x-2">
-            <span>Baca Ulasan Terbaru</span>
-            <i data-lucide="arrow-down" class="w-4 h-4"></i>
-          </a>
-          <a href="#tentang" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold transition">
-            Tentang Pengulas
-          </a>
+    <section id="home" class="relative overflow-hidden py-20 lg:py-24 border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_15%_0%,rgba(59,130,246,0.20),rgba(255,255,255,0)_60%)]"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-6">
+              <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              <span>Update Ulasan Baru 2× Sehari</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white max-w-xl mx-auto lg:mx-0 leading-[1.1]">
+              Panduan Gadget Terpercaya & <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500">Ulasan Teknologi Terkini</span>
+            </h1>
+            <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Temukan ulasan komprehensif seputar smartphone, laptop, ekosistem aksesoris pintar, hingga teknologi terdepan bersama <strong class="text-slate-200">Ulastech</strong>.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <a href="#ulasan" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-600/30 transition flex items-center space-x-2">
+                <span>Baca Ulasan Terbaru</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+              <a href="#tentang" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold transition">
+                Tentang Pengulas
+              </a>
+            </div>
+            <div class="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Ulasan Independen</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Riset Berbasis Sumber Terbaru</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>5 Kategori Teknologi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero illustration -->
+          <div class="relative flex-shrink-0 w-full max-w-xs h-[380px] hidden sm:block">
+            <div class="absolute right-2 top-6 w-56 h-72 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rotate-6 shadow-2xl"></div>
+            <div class="absolute left-2 top-0 w-44 h-[340px] rounded-[28px] bg-slate-900 border-4 border-slate-800 shadow-2xl">
+              <div class="m-3 rounded-2xl bg-slate-950 h-[calc(100%-1.5rem)] p-3 flex flex-col gap-2.5">
+                <div class="h-16 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-400 to-slate-800"></div>
+                <div class="h-2 w-2/3 rounded bg-slate-700"></div>
+                <div class="h-2 w-2/5 rounded bg-slate-800"></div>
+                <div class="h-10 rounded-lg bg-slate-900 border border-slate-800 mt-1"></div>
+                <div class="h-10 rounded-lg bg-slate-900 border border-slate-800"></div>
+              </div>
+            </div>
+            <div class="absolute left-0 bottom-14 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 shadow-xl">
+              <span class="text-amber-400 text-sm">★</span>
+              <span class="text-xs font-bold text-white">4.9</span>
+              <span class="text-[10px] text-slate-400">Skor Ulasan</span>
+            </div>
+            <div class="absolute right-0 bottom-0 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-[11px] font-bold text-cyan-300 shadow-xl">AI Terbaru</div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- FEATURED ARTICLE -->
+    <section class="pt-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-xs font-bold tracking-widest uppercase text-blue-400 mb-4">Sorotan Hari Ini</div>
+      <div id="featuredArticle"></div>
+    </section>
+
     <!-- ULASAN SECTION -->
     <section id="ulasan" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Artikel & Ulasan Terkini</h2>
           <p class="text-sm text-slate-400 mt-1">Kupas tuntas gadget terbaru, spesifikasi mutakhir, dan wawasan dunia teknologi.</p>
         </div>
-        <!-- Search & Filter -->
-        <div class="flex flex-wrap items-center gap-3">
-          <div class="relative">
-            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
-            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Cari ulasan gadget..." class="bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-full sm:w-64">
-          </div>
-          <select id="categoryFilter" onchange="filterArticles()" class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-blue-500">
-            <option value="ALL">Semua Kategori</option>
-            <option value="Apple & iOS">Apple & iOS</option>
-            <option value="Android & OS">Android & OS</option>
-            <option value="Laptop & PC">Laptop & PC</option>
-            <option value="Keamanan Perangkat">Keamanan Perangkat</option>
-            <option value="AI Terbaru">AI Terbaru</option>
-          </select>
+        <!-- Search -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+          <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Cari ulasan gadget..." class="bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-full sm:w-64">
         </div>
       </div>
+
+      <!-- Category filter pills -->
+      <div id="categoryPills" class="flex flex-wrap gap-2.5 mb-8"></div>
 
       <!-- Articles Grid -->
       <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -168,6 +205,9 @@
       <div id="emptyState" class="hidden text-center py-16 bg-slate-900/40 rounded-2xl border border-slate-800">
         <i data-lucide="inbox" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
         <p class="text-slate-400 font-medium">Belum ada artikel ulasan yang cocok.</p>
+      </div>
+      <div id="loadMoreWrap" class="hidden justify-center mt-10">
+        <button onclick="loadMoreArticles()" class="px-7 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-sm font-semibold transition">Muat Lebih Banyak</button>
       </div>
     </section>
 
@@ -281,16 +321,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- MODAL: ARTICLE DETAIL -->
-  <div id="articleDetailModal" onclick="closeArticleModal()" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
-    <div onclick="event.stopPropagation()" class="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-      <button onclick="closeArticleModal()" class="absolute top-4 right-4 p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-      <div id="articleDetailContent"></div>
-    </div>
-  </div>
 
   <!-- MODAL: ADMIN LOGIN & DASHBOARD -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
@@ -466,6 +496,38 @@
     let articles = JSON.parse(localStorage.getItem('Ulastech_articles')) || [];
     let messages = JSON.parse(localStorage.getItem('Ulastech_messages')) || [];
 
+    const CATEGORIES = ['Apple & iOS', 'Android & OS', 'Laptop & PC', 'Keamanan Perangkat', 'AI Terbaru'];
+    const CATEGORY_COLORS = {
+      'Apple & iOS':          { text: 'text-blue-300',    ring: 'border-blue-500/30',    bg: 'bg-blue-500/10' },
+      'Android & OS':         { text: 'text-emerald-300', ring: 'border-emerald-500/30', bg: 'bg-emerald-500/10' },
+      'Laptop & PC':          { text: 'text-violet-300',  ring: 'border-violet-500/30',  bg: 'bg-violet-500/10' },
+      'Keamanan Perangkat':   { text: 'text-rose-300',    ring: 'border-rose-500/30',    bg: 'bg-rose-500/10' },
+      'AI Terbaru':           { text: 'text-cyan-300',    ring: 'border-cyan-500/30',    bg: 'bg-cyan-500/10' }
+    };
+    function categoryColor(cat) {
+      return CATEGORY_COLORS[cat] || { text: 'text-blue-300', ring: 'border-blue-500/30', bg: 'bg-blue-500/10' };
+    }
+
+    // Ubah judul jadi slug URL, dipakai untuk link halaman artikel /ulasan/<slug>
+    function slugify(text) {
+      return (text || '')
+        .toString()
+        .normalize('NFKD')
+        .replace(/[̀-ͯ]/g, '')
+        .toLowerCase()
+        .replace(/&/g, ' dan ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 80);
+    }
+    function articleHref(item) {
+      return '/ulasan/' + (item.slug || slugify(item.title) || item.id);
+    }
+
+    let visibleCount = 6;
+    const PAGE_SIZE = 6;
+    let currentCategory = 'ALL';
+
     async function loadArticlesFromJSON() {
       // Kalau admin belum pernah menyimpan perubahan lokal, ambil dari file JSON terbaru
       if (localStorage.getItem('Ulastech_articles')) {
@@ -480,6 +542,62 @@
         console.error('Gagal memuat artikel dari JSON, memakai data kosong.', err);
         articles = [];
       }
+      renderFeatured();
+      renderArticles();
+    }
+
+    function renderCategoryPills() {
+      const wrap = document.getElementById('categoryPills');
+      const pills = [{ label: 'Semua Kategori', value: 'ALL' }, ...CATEGORIES.map(c => ({ label: c, value: c }))];
+      wrap.innerHTML = pills.map(p => `
+        <button type="button" onclick="goToCategory('${p.value.replace(/'/g, "\\'")}')" data-cat="${p.value}"
+          class="cat-pill px-4 py-2 rounded-full text-xs font-semibold border transition ${p.value === 'ALL' ? 'bg-blue-600 border-blue-600 text-white' : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'}">
+          ${p.label}
+        </button>
+      `).join('');
+    }
+
+    function updateCategoryPillsUI(active) {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.dataset.cat === active) {
+          btn.className = 'cat-pill px-4 py-2 rounded-full text-xs font-semibold border transition bg-blue-600 border-blue-600 text-white';
+        } else {
+          btn.className = 'cat-pill px-4 py-2 rounded-full text-xs font-semibold border transition bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700';
+        }
+      });
+    }
+
+    function renderFeatured() {
+      const container = document.getElementById('featuredArticle');
+      if (!container) return;
+      const item = articles[0];
+      if (!item) { container.innerHTML = ''; return; }
+      const c = categoryColor(item.category);
+      container.innerHTML = `
+        <a href="${articleHref(item)}" class="flex flex-col md:flex-row gap-6 md:gap-8 bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-3xl overflow-hidden transition group">
+          <div class="relative md:w-[45%] h-56 md:h-80 overflow-hidden bg-slate-950 flex-shrink-0">
+            <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'">
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-lg text-xs font-bold ${c.bg} ${c.text} border ${c.ring}">${item.category}</div>
+          </div>
+          <div class="flex-1 py-6 md:py-8 pr-6 md:pr-8 flex flex-col justify-center gap-3">
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
+              <span>${item.date}</span><span>•</span><span>${item.author}</span><span>•</span>
+              <span class="text-amber-400 font-bold">★ ${item.rating}</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white group-hover:text-blue-400 transition leading-snug">${item.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed line-clamp-3">${item.summary}</p>
+            <div class="flex items-center gap-2 text-sm font-semibold text-blue-400 mt-1">
+              <span>Baca Selengkapnya</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </a>
+      `;
+      lucide.createIcons();
+    }
+
+    function loadMoreArticles() {
+      visibleCount += PAGE_SIZE;
       renderArticles();
     }
 
@@ -501,6 +619,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('currentYear').innerText = new Date().getFullYear();
+      renderCategoryPills();
       loadArticlesFromJSON();
       updateAdminAuthUI();
       lucide.createIcons();
@@ -508,6 +627,7 @@
 
     function saveArticles() {
       localStorage.setItem('Ulastech_articles', JSON.stringify(articles));
+      renderFeatured();
       renderArticles();
       renderAdminArticles();
     }
@@ -521,8 +641,9 @@
     function renderArticles() {
       const grid = document.getElementById('articlesGrid');
       const emptyState = document.getElementById('emptyState');
+      const loadMoreWrap = document.getElementById('loadMoreWrap');
       const query = (document.getElementById('searchInput')?.value || '').toLowerCase();
-      const cat = document.getElementById('categoryFilter')?.value || 'ALL';
+      const cat = currentCategory;
 
       const filtered = articles.filter(item => {
         const matchesQuery = item.title.toLowerCase().includes(query) || item.summary.toLowerCase().includes(query);
@@ -533,15 +654,20 @@
       if (filtered.length === 0) {
         grid.innerHTML = '';
         emptyState.classList.remove('hidden');
+        loadMoreWrap.classList.add('hidden');
+        loadMoreWrap.classList.remove('flex');
         return;
       }
 
       emptyState.classList.add('hidden');
-      grid.innerHTML = filtered.map(item => `
-        <article onclick="viewArticleDetail('${item.id}')" class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden transition duration-300 flex flex-col group hover:-translate-y-1 shadow-lg shadow-black/40 cursor-pointer">
+      const visible = filtered.slice(0, visibleCount);
+      grid.innerHTML = visible.map(item => {
+        const c = categoryColor(item.category);
+        return `
+        <a href="${articleHref(item)}" class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden transition duration-300 flex flex-col group hover:-translate-y-1 shadow-lg shadow-black/40">
           <div class="relative h-48 overflow-hidden bg-slate-950">
             <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'">
-            <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-semibold text-blue-400 border border-slate-800">
+            <div class="absolute top-3 left-3 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-semibold border ${c.bg} ${c.text} ${c.ring}">
               ${item.category}
             </div>
             <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-bold text-amber-400 flex items-center space-x-1 border border-slate-800">
@@ -564,63 +690,36 @@
               </p>
             </div>
             <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between">
-              <button onclick="event.stopPropagation(); viewArticleDetail('${item.id}')" class="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center space-x-1">
+              <span class="text-xs font-semibold text-blue-400 group-hover:text-blue-300 flex items-center space-x-1">
                 <span>Baca Selengkapnya</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
+              </span>
             </div>
           </div>
-        </article>
-      `).join('');
+        </a>
+      `;
+      }).join('');
+
+      if (filtered.length > visible.length) {
+        loadMoreWrap.classList.remove('hidden');
+        loadMoreWrap.classList.add('flex');
+      } else {
+        loadMoreWrap.classList.add('hidden');
+        loadMoreWrap.classList.remove('flex');
+      }
 
       lucide.createIcons();
     }
 
     function filterArticles() {
+      visibleCount = PAGE_SIZE;
       renderArticles();
     }
 
     function goToCategory(cat) {
-      const select = document.getElementById('categoryFilter');
-      if (select) {
-        select.value = cat;
-        filterArticles();
-      }
-    }
-
-    function viewArticleDetail(id) {
-      const art = articles.find(a => a.id === id);
-      if (!art) return;
-
-      const formattedContent = art.content.replace(/\n/g, '<br>');
-      const detailContainer = document.getElementById('articleDetailContent');
-      detailContainer.innerHTML = `
-        <div class="space-y-4">
-          <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">
-            ${art.category}
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white">${art.title}</h2>
-          <div class="flex items-center space-x-3 text-xs text-slate-400 border-b border-slate-800 pb-3">
-            <span>Oleh: <strong class="text-slate-200">${art.author}</strong></span>
-            <span>•</span>
-            <span>${art.date}</span>
-            <span>•</span>
-            <span class="text-amber-400 font-bold">★ ${art.rating} / 5.0</span>
-          </div>
-          <img src="${art.imageUrl}" class="w-full h-64 sm:h-80 object-cover rounded-xl border border-slate-800" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'">
-          <div class="text-sm text-slate-300 leading-relaxed space-y-3 pt-2">
-            ${formattedContent}
-          </div>
-        </div>
-      `;
-      document.getElementById('articleDetailModal').classList.remove('hidden');
-      document.getElementById('articleDetailModal').classList.add('flex');
-      lucide.createIcons();
-    }
-
-    function closeArticleModal() {
-      document.getElementById('articleDetailModal').classList.add('hidden');
-      document.getElementById('articleDetailModal').classList.remove('flex');
+      currentCategory = cat;
+      updateCategoryPillsUI(cat);
+      filterArticles();
     }
 
     // CONTACT FORM SUBMIT
@@ -856,11 +955,18 @@
       if (id) {
         const index = articles.findIndex(a => a.id === id);
         if (index !== -1) {
+          // Slug tetap dipertahankan seperti semula supaya URL artikel yang sudah pernah
+          // dibagikan tidak berubah hanya karena kontennya diedit.
           articles[index] = { ...articles[index], title, category, rating, author, imageUrl, summary, content };
         }
       } else {
+        const existingSlugs = new Set(articles.map(a => a.slug).filter(Boolean));
+        let slug = slugify(title) || 'artikel';
+        let i = 2;
+        while (existingSlugs.has(slug)) { slug = slugify(title) + '-' + i; i++; }
         const newArt = {
           id: 'art-' + Date.now(),
+          slug,
           title,
           category,
           rating,
