@@ -231,6 +231,13 @@
         <p class="text-slate-400 text-sm mt-2">Punya pertanyaan seputar gadget atau ingin mengirimkan unit review? Tinggalkan pesan di bawah.</p>
       </div>
       <form id="contactForm" onsubmit="handleContactSubmit(event)" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+        <!-- Honeypot anti-bot: field ini disembunyikan dari manusia lewat CSS.
+             Bot yang otomatis mengisi semua field akan mengisi ini juga, sehingga bisa dideteksi & diabaikan. -->
+        <div class="absolute left-[-9999px]" aria-hidden="true">
+          <label for="contactWebsite">Jangan diisi</label>
+          <input type="text" id="contactWebsite" tabindex="-1" autocomplete="off">
+        </div>
+        <div id="contactStatus" class="hidden text-xs rounded-lg p-3 border"></div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Lengkap</label>
@@ -249,9 +256,9 @@
           <label class="block text-xs font-semibold text-slate-300 mb-1">Pesan Anda</label>
           <textarea id="contactMessage" rows="4" required placeholder="Tuliskan pesan detail Anda di sini..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500"></textarea>
         </div>
-        <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center space-x-2">
+        <button type="submit" id="contactSubmitBtn" class="w-full py-3 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center space-x-2">
           <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Kirim Pesan</span>
+          <span id="contactSubmitLabel">Kirim Pesan</span>
         </button>
       </form>
     </section>
@@ -617,13 +624,32 @@
     }
 
     // CONTACT FORM SUBMIT
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('contactName').value;
-      const email = document.getElementById('contactEmail').value;
-      const subject = document.getElementById('contactSubject').value;
-      const message = document.getElementById('contactMessage').value;
+    function showContactStatus(type, text) {
+      const el = document.getElementById('contactStatus');
+      el.classList.remove('hidden');
+      if (type === 'success') {
+        el.className = 'text-xs rounded-lg p-3 border bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+      } else {
+        el.className = 'text-xs rounded-lg p-3 border bg-rose-500/10 text-rose-400 border-rose-500/30';
+      }
+      el.innerText = text;
+    }
 
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const subject = document.getElementById('contactSubject').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      const website = document.getElementById('contactWebsite').value; // honeypot, harus kosong
+
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const submitLabel = document.getElementById('contactSubmitLabel');
+      submitBtn.disabled = true;
+      submitLabel.innerText = 'Mengirim...';
+
+      // Simpan juga ke localStorage supaya tetap tercatat di tab "Pesan Masuk" dashboard
+      // admin kalau dibuka dari browser yang sama dengan pengunjung ini.
       const newMsg = {
         id: 'msg-' + Date.now(),
         name,
@@ -632,12 +658,30 @@
         message,
         date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
       };
-
       messages.unshift(newMsg);
       saveMessages();
 
-      alert('Terima kasih! Pesan Anda telah terkirim.');
-      e.target.reset();
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message, website })
+        });
+        const result = await res.json().catch(() => ({}));
+
+        if (res.ok && result.ok) {
+          showContactStatus('success', 'Terima kasih! Pesan Anda telah terkirim ke tim Ulastech.');
+          e.target.reset();
+        } else {
+          showContactStatus('error', result.error || 'Pesan gagal terkirim. Coba lagi beberapa saat lagi.');
+        }
+      } catch (err) {
+        console.error('Gagal mengirim pesan kontak:', err);
+        showContactStatus('error', 'Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.');
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.innerText = 'Kirim Pesan';
+      }
     }
 
     // ADMIN MODAL & AUTH FUNCTIONS
