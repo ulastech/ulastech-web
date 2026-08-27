@@ -1,5 +1,5 @@
 // scripts/generate-daily-article.mjs
-// Menghasilkan 1 artikel teknologi baru tiap hari lewat Claude API,
+// Menghasilkan 2 artikel teknologi baru tiap hari lewat Claude API,
 // lalu menambahkannya ke data/articles.json
 
 import fs from "fs/promises";
