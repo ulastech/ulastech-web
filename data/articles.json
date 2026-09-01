@@ -1,5 +1,17 @@
 [
   {
+    "id": "art-1788234814106",
+    "title": "Tips Keamanan Siber 2026: Cara Ampuh Lindungi PC & Laptop dari Malware dan Ransomware",
+    "category": "Keamanan Perangkat",
+    "rating": 4.8,
+    "author": "Tim Ulastech (AI)",
+    "date": "1 Sep 2026",
+    "imageUrl": "https://images.pexels.com/photos/5475752/pexels-photo-5475752.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "summary": "Ancaman ransomware dan malware berbasis AI makin canggih di 2026. Simak tips keamanan siber terbaru yang wajib diterapkan untuk melindungi PC dan laptop kamu dari serangan siber.",
+    "content": "Mulai dari virus hingga ransomware, berbagai ancaman digital kini mengincar pengguna laptop tanpa pandang bulu — baik pelajar, profesional, hingga pemilik bisnis kecil. Situasi ini kian mengkhawatirkan karena kombinasi otomasi dan kecerdasan buatan telah menurunkan hambatan bagi pelaku kejahatan untuk melancarkan serangan yang makin canggih. Laporan CrowdStrike 2026 bahkan mencatat waktu rata-rata pelaku siber berpindah antar sistem hanya 29 menit, dengan waktu tercepat 27 detik dan pencurian data yang bisa dimulai hanya empat menit setelah akses awal berhasil.\n\nTren ancaman siber di 2026 mencakup ransomware, serangan berbasis AI, phishing, dan eksploitasi zero-day. Yang paling mengkhawatirkan adalah munculnya generative AI malware yang mampu mengadaptasi perilakunya secara real-time untuk menghindari deteksi, serta polymorphic fileless malware yang hidup di memori sistem dan terus berubah pola sehingga sulit dideteksi antivirus konvensional. Peneliti Kaspersky juga mencatat tren baru: pelaku ransomware kini mulai beralih dari enkripsi data ke kebocoran data sebagai taktik pemerasan yang lebih efektif.\n\nBerikut langkah-langkah perlindungan yang wajib diterapkan:\n- Update sistem operasi dan aplikasi secara rutin untuk menutup celah keamanan yang bisa dieksploitasi\n- Aktifkan Windows Security dan fitur Controlled Folder Access (Windows 10/11) untuk memblokir akses ransomware ke folder penting\n- Gunakan antivirus andal dengan proteksi real-time seperti Bitdefender Internet Security (deteksi ancaman berbasis AI) atau Kaspersky Standard (ringan, cocok untuk pengguna rumahan)\n- Terapkan strategi backup rutin ke cloud storage (Google Drive, OneDrive) dan hard disk eksternal terenkripsi, minimal seminggu sekali\n- Aktifkan Two-Factor Authentication (2FA) di semua akun penting: email, media sosial, dan akun keuangan\n- Waspadai phishing dan jangan sambungkan USB tidak dikenal ke perangkat\n- Gunakan VPN saat terhubung ke WiFi publik untuk mencegah penyadapan data\n\nPada akhirnya, keamanan siber yang efektif bukan tentang memiliki teknologi paling mahal, melainkan soal konsistensi dalam kebiasaan digital sehari-hari. Serangan siber modern justru banyak yang mengandalkan kelalaian kecil: password yang dipakai ulang, klik tautan palsu, atau sekadar menunda update keamanan. Terapkan langkah-langkah di atas mulai sekarang — karena dalam dunia siber yang bergerak dengan kecepatan hitungan detik, persiapan adalah pertahanan terbaik yang bisa kamu miliki.",
+    "slug": "tips-keamanan-siber-2026-cara-ampuh-lindungi-pc-dan-laptop-dari-malware-dan-rans"
+  },
+  {
     "id": "art-1788194021115",
     "title": "Laptop Terbaik 2026: Pilihan Tepat untuk Kerja, Kuliah, dan Gaming",
     "category": "Laptop & PC",
